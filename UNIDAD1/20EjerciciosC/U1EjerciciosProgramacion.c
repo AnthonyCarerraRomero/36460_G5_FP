@@ -1,14 +1,19 @@
 #include <stdio.h>
 #include <stdbool.h>
-/*Ejercicio 1: Media de dos valores*/
+
+/*Integrantes:Anthony Carrera, Diego Cumbal y Diego Pinto
+
+Ejercicio 1: Media de dos valores
+Desarrolla un programa que ingrese dos nÃºmeros por teclado e imprima su media.
+Realiza y completa la tabla de objetos del problema 1.1:*/
 /**
 int main(void){
     float num1, num2, media;
 
-    printf("Ingrese el primer número: ");
+    printf("Ingrese el primer nÃºmero: ");
     scanf("%f", &num1);
 
-    printf("Ingrese el segundo número: ");
+    printf("Ingrese el segundo nÃºmero: ");
     scanf("%f", &num2);
 
     media=(num1+num2)/2;
@@ -19,7 +24,7 @@ int main(void){
 }
 **/
 
-/*Ejercicio 2: Valor absoluto de x al cubo*/
+/*Ejercicio 2: Valor absoluto de x al cubo  */
 /**
 int main(void){
     float x, resultado;
@@ -70,13 +75,13 @@ int main(void){
 }
 **/
 
-/**Problema 1.5. Conversión de unidades de tiempo**/
+/**Problema 1.5. ConversiÃ³n de unidades de tiempo**/
 /**
 int main(){
 
     int c, dias, horas, minutos, segundos, resto;
 
-    printf("Ingrese el número de segundos (c): ");
+    printf("Ingrese el nÃºmero de segundos (c): ");
     scanf("%d", &c);
 
     dias = c / (24 * 60 * 60);
@@ -86,8 +91,8 @@ int main(){
     minutos = resto / 60;
     segundos = resto % 60;
 
-    printf("Conversión de unidades:\n");
-    printf("Días: %d\n", dias);
+    printf("ConversiÃ³n de unidades:\n");
+    printf("DÃ­as: %d\n", dias);
     printf("Horas: %d\n", horas);
     printf("Minutos: %d\n", minutos);
     printf("Segundos: %d\n", segundos);
@@ -96,7 +101,7 @@ int main(){
 }
 **/
 
-/**Problema 1.6. Máximo, mínimo y media de alturas**/
+/**Problema 1.6. MÃ¡ximo, mÃ­nimo y media de alturas**/
 /**
 int main()
 {
@@ -139,7 +144,7 @@ int main()
 }
 **/
 
-/**Problema 1.7. Raíz cuadrada entera**/
+/**Problema 1.7. RaÃ­z cuadrada entera**/
 /**
 int main(void)
 {
@@ -162,7 +167,7 @@ int main(void)
 }
 **/
 
-/**Problema 1.8. Número primo**/
+/**Problema 1.8. NÃºmero primo**/
 /**
 int main(void)
 {
@@ -200,7 +205,7 @@ int main(void)
 }
 **/
 
-/**Problema 1.9. Números primos comprendidos entre dos números dados**/
+/**Problema 1.9. NÃºmeros primos comprendidos entre dos nÃºmeros dados**/
 /**
 
 int es_primo(int n)
@@ -287,7 +292,7 @@ int main()
     int n, i;
     int anterior = 0, actual = 1, siguiente;
 
-    printf("Cuántos términos quieres? ");
+    printf("CuÃ¡ntos tÃ©rminos quieres? ");
     scanf("%d", &n);
 
     if (n < 1) {
@@ -307,16 +312,16 @@ int main()
 }
 **/
 
-/**Problema 1.12. Suma de dígitos
+/**Problema 1.12. Suma de dÃ­gitos
 
 int main(void){
     int n, suma=0, digito;
 
-    printf("Ingrese un número: ");
+    printf("Ingrese un nÃºmero: ");
     scanf("%d", &n);
 
     if (n<=0){
-        printf("El número deber ser positivo");
+        printf("El nÃºmero deber ser positivo");
         return 0;
     }
 
@@ -326,13 +331,13 @@ int main(void){
         n=n/10;
     }
 
-    printf("La suma de sus dígitos es: %d\n", suma);
+    printf("La suma de sus dÃ­gitos es: %d\n", suma);
     return 0;
 }
 **/
 
 /**
-Problema 1.13. Número capicúa
+Problema 1.13. NÃºmero capicÃºa
 
 int main()
 {
@@ -342,7 +347,7 @@ int main()
     scanf("%d", &n);
 
     if (n <= 0) {
-        printf("El número debe ser positivo\n");
+        printf("El nÃºmero debe ser positivo\n");
         return 0;
     }
 
@@ -354,26 +359,26 @@ int main()
     }
 
     if (invertido == n)
-        printf("%d es capicúa\n", n);
+        printf("%d es capicÃºa\n", n);
     else
-        printf("%d no es capicúa\n", n);
+        printf("%d no es capicÃºa\n", n);
 
     return 0;
 }
 **/
 
-/**Problema 1.14. Máximo común divisor (algoritmo de Euclides)
+/**Problema 1.14. MÃ¡ximo comÃºn divisor (algoritmo de Euclides)
 int main()
 {
     int a, b, resto, mcd;
 
-    printf("Ingresa el primer número: ");
+    printf("Ingresa el primer nÃºmero: ");
     scanf("%d", &a);
-    printf("Ingresa el segundo número: ");
+    printf("Ingresa el segundo nÃºmero: ");
     scanf("%d", &b);
 
     if (a <= 0 || b <= 0) {
-        printf("Los números deben ser positivos\n");
+        printf("Los nÃºmeros deben ser positivos\n");
         return 0;
     }
 
@@ -390,12 +395,12 @@ int main()
 }
 **/
 
-/**Problema 1.15. Año bisiesto
+/**Problema 1.15. AÃ±o bisiesto
 int main()
 {
     int anio;
 
-    printf("Ingresa un año: ");
+    printf("Ingresa un aÃ±o: ");
     scanf("%d", &anio);
 
     if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0)
@@ -407,7 +412,7 @@ int main()
 }
 **/
 
-/**Problema 1.16. Número perfecto
+/**Problema 1.16. NÃºmero perfecto
 int main()
 {
     int n, d, suma = 0;
@@ -416,7 +421,7 @@ int main()
     scanf("%d", &n);
 
     if (n <= 0) {
-        printf("El número debe ser positivo\n");
+        printf("El nÃºmero debe ser positivo\n");
         return 0;
     }
 
@@ -434,7 +439,7 @@ int main()
 }
 **/
 
-/**Problema 1.17. Conversión de decimal a binario
+/**Problema 1.17. ConversiÃ³n de decimal a binario
 int main()
 {
     int n, resto;
@@ -456,7 +461,7 @@ int main()
 }
 **/
 
-/**Problema 1.18. Triángulo de asteriscos
+/**Problema 1.18. TriÃ¡ngulo de asteriscos
 
 int main()
 {
@@ -505,7 +510,7 @@ int main()
 }
 **/
 
-/**Problema 1.20. Adivina el número
+/**Problema 1.20. Adivina el nÃºmero
 
 int main()
 {
