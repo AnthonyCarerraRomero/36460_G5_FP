@@ -32,7 +32,7 @@ int main(void){
     printf("Ingrese un valor: ");
     scanf("%f", &x);
 
-    resultado=x*x*x;
+    resultado= fabs(x) *fabs(x) *fabs(x) ;
 
     printf("El valor absoluto de %.2f al cubo es: %.2f \n", x, resultado);
 
