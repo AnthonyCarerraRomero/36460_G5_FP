@@ -1,27 +1,18 @@
+ /**Problema 1.15. Año bisiesto
+ 
+ **/
 #include <stdio.h>
 int main()
 {
-    int n, copia, digito, invertido = 0;
+    int anio;
 
-    printf("Ingresa un entero positivo: ");
-    scanf("%d", &n);
+    printf("Ingresa un año: ");
+    scanf("%d", &anio);
 
-    if (n <= 0) {
-        printf("El número debe ser positivo\n");
-        return 0;
-    }
-
-    copia = n;
-    while (copia > 0) {
-        digito = copia % 10;
-        invertido = invertido * 10 + digito;
-        copia = copia / 10;
-    }
-
-    if (invertido == n)
-        printf("%d es capicúa\n", n);
+    if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0)
+        printf("%d es bisiesto\n", anio);
     else
-        printf("%d no es capicúa\n", n);
+        printf("%d no es bisiesto\n", anio);
 
     return 0;
 }
