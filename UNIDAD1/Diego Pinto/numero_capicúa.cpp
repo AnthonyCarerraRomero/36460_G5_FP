@@ -19,9 +19,9 @@ int main()
     }
 
     if (invertido == n)
-        printf("%d es capicúa\n", n);
+        printf("%d es capicua\n", n);
     else
-        printf("%d no es capicúa\n", n);
+        printf("%d no es capicua\n", n);
 
     return 0;
 }
