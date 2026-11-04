@@ -16,7 +16,7 @@ int main()
             if (intento > secreto) {
                 printf("Mas bajo\n");
             } else {
-                printf("¡Acertaste!\n");
+                printf("Â¡Acertaste!\n");
             }
         }
     } while (intento != secreto);
