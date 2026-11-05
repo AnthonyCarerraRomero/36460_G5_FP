@@ -1,0 +1,38 @@
+/*
+ * Problema 1.10. Factorial[cite: 21]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    unsigned long long factorial = 1;
+
+    // Lectura del valor n para calcular su factorial
+    printf("Ingrese un numero entero n >= 0: ");
+    if (scanf("%d", &n) != 1) {
+        printf("Error: entrada no valida.\n");
+        return 1;
+    }
+
+    // Verificacion de restricciones matematicas y limites de memoria de 64 bits
+    if (n < 0) {
+        printf("Error: el factorial no esta definido para negativos.\n");
+        return 1;
+    }
+    if (n > 20) {
+        printf("Error: n es demasiado grande para un entero de 64 bits.\n");
+        return 1;
+    }
+
+    // Bucle acumulador que calcula el producto sucesivo desde 1 hasta n
+    for (int i = 1; i <= n; i++) {
+        factorial *= (unsigned long long)i;
+    }
+
+    // Impresion del factorial con especificador adecuado para enteros sin signo largos
+    printf("%d! = %llu\n", n, factorial);
+
+    return 0;
+}
