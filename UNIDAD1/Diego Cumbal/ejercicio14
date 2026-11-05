@@ -1,0 +1,39 @@
+/*
+ * Problema 1.14. Maximo comun divisor (algoritmo de Euclides)[cite: 21]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int a, b, original_a, original_b, resto;
+
+    // Entrada de los dos numeros enteros positivos
+    printf("Ingresa el primer numero: ");
+    if (scanf("%d", &a) != 1 || a <= 0) {
+        printf("Error: los numeros deben ser positivos.\n");
+        return 1;
+    }
+
+    printf("Ingresa el segundo numero: ");
+    if (scanf("%d", &b) != 1 || b <= 0) {
+        printf("Error: los numeros deben ser positivos.\n");
+        return 1;
+    }
+
+    // Copia de seguridad de los valores originales para mostrarlos en el mensaje final
+    original_a = a;
+    original_b = b;
+
+    // Aplicacion del algoritmo clasico de division sucesiva de Euclides mientras el divisor sea distinto de cero
+    while (b != 0) {
+        resto = a % b;
+        a = b;
+        b = resto;
+    }
+
+    // El valor resultante en 'a' representa el Maximo Comun Divisor
+    printf("El MCD de %d y %d es: %d\n", original_a, original_b, a);
+
+    return 0;
+}
