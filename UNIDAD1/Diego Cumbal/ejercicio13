@@ -1,0 +1,33 @@
+/*
+ * Problema 1.13. Numero capicua[cite: 21]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n, copia, invertido = 0;
+
+    // Validacion inicial del valor a verificar
+    printf("Ingresa un entero positivo: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Error: el numero debe ser positivo.\n");
+        return 1;
+    }
+
+    // Construccion del numero invertido extrayendo digitos y multiplicando la base por 10
+    copia = n;
+    while (copia > 0) {
+        invertido = invertido * 10 + (copia % 10);
+        copia /= 10;
+    }
+
+    // Comparacion del numero resultante invertido con el valor original
+    if (invertido == n) {
+        printf("%d es capicua.\n", n);
+    } else {
+        printf("%d no es capicua.\n", n);
+    }
+
+    return 0;
+}
