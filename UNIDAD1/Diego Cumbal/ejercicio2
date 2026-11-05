@@ -1,0 +1,28 @@
+/*
+ * Problema 1.2. Valor absoluto de x al cubo[cite: 19]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    // Variables para el valor original, su valor absoluto y el resultado final
+    float x, abs_x, resultado;
+
+    // Lectura del valor introducido por teclado
+    printf("Ingrese un valor: ");
+    if (scanf("%f", &x) != 1) {
+        printf("Error: entrada no valida.\n");
+        return 1;
+    }
+
+    // Obtencion del valor absoluto y posterior elevacion al cubo por multiplicacion sucesiva
+    abs_x = fabsf(x);
+    resultado = abs_x * abs_x * abs_x;
+
+    // Impresion del resultado en pantalla
+    printf("El valor absoluto de %.2f al cubo es: %.2f\n", x, resultado);
+
+    return 0;
+}
