@@ -1,0 +1,41 @@
+/*
+ * Problema 1.20. Adivina el numero[cite: 23]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    // Declaracion del numero a adivinar y de los contadores del juego
+    const int SECRETO = 37;
+    int intento = 0, cont = 0;
+
+    printf("Pense un numero entre 1 y 100, adivinalo\n");
+
+    // Bucle interactivo que continua hasta que el usuario acierte el valor secreto
+    while (intento != SECRETO) {
+        printf("Tu intento: ");
+        // Limpieza de buffer en caso de que el usuario introduzca caracteres no numericos
+        if (scanf("%d", &intento) != 1) {
+            printf("Error: ingrese un numero valido.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        cont++;
+
+        // Pistas enviadas al usuario para guiar la busqueda
+        if (intento < SECRETO) {
+            printf("Mas alto\n");
+        } else if (intento > SECRETO) {
+            printf("Mas bajo\n");
+        } else {
+            printf("Acertaste!\n");
+        }
+    }
+
+    // Notificacion del numero total de intentos utilizados
+    printf("Usaste %d intentos\n", cont);
+
+    return 0;
+}
