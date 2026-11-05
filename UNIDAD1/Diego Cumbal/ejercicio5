@@ -1,0 +1,42 @@
+/*
+ * Problema 1.5. Conversion de unidades de tiempo[cite: 20]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    // Declaracion de variables para almacenar el tiempo desglosado
+    int c, dias, horas, minutos, segundos, resto;
+    const int SEGUNDOS_POR_DIA = 86400;
+    const int SEGUNDOS_POR_HORA = 3600;
+    const int SEGUNDOS_POR_MINUTO = 60;
+
+    // Lectura de la cantidad de segundos totales
+    printf("Ingrese el numero de segundos (c): ");
+    if (scanf("%d", &c) != 1 || c < 0) {
+        printf("Error: ingrese un numero entero no negativo.\n");
+        return 1;
+    }
+
+    // Desglose de dias completos y obtencion del resto en segundos
+    dias = c / SEGUNDOS_POR_DIA;
+    resto = c % SEGUNDOS_POR_DIA;
+
+    // Desglose de horas completas a partir del resto anterior
+    horas = resto / SEGUNDOS_POR_HORA;
+    resto = resto % SEGUNDOS_POR_HORA;
+
+    // Desglose de minutos y segundos finales sobrantes
+    minutos = resto / SEGUNDOS_POR_MINUTO;
+    segundos = resto % SEGUNDOS_POR_MINUTO;
+
+    // Visualizacion organizada de cada unidad temporal
+    printf("\nConversion de unidades:\n");
+    printf("Dias: %d\n", dias);
+    printf("Horas: %d\n", horas);
+    printf("Minutos: %d\n", minutos);
+    printf("Segundos: %d\n", segundos);
+
+    return 0;
+}
