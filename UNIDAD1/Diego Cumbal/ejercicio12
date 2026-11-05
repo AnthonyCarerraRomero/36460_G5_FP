@@ -1,0 +1,29 @@
+/*
+ * Problema 1.12. Suma de digitos[cite: 21]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n, copia, suma = 0;
+
+    // Lectura y comprobacion de que sea un numero positivo
+    printf("Ingrese un numero entero positivo: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Error: el numero debe ser positivo.\n");
+        return 1;
+    }
+
+    // Descomposicion numerica extrayendo el ultimo digito con modulo 10 y reduciendo con division 10
+    copia = n;
+    while (copia > 0) {
+        suma += copia % 10;
+        copia /= 10;
+    }
+
+    // Muestra del total acumulado de los digitos
+    printf("La suma de los digitos de %d es: %d\n", n, suma);
+
+    return 0;
+}
