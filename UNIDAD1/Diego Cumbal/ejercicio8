@@ -1,0 +1,44 @@
+/*
+ * Problema 1.8. Numero primo[cite: 20]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+    int num, divisor;
+    bool es_primo;
+
+    // Ciclo do-while para obligar al usuario a ingresar un numero mayor que 1
+    do {
+        printf("Ingrese un numero entero mayor que 1: ");
+        if (scanf("%d", &num) != 1) {
+            printf("Error: entrada no numerica.\n");
+            return 1;
+        }
+        if (num <= 1) {
+            printf("El valor debe ser mayor que 1.\n");
+        }
+    } while (num <= 1);
+
+    // Inicializacion del estado primo y prueba de divisores hasta la raiz cuadrada (divisor^2 <= num)
+    es_primo = true;
+    divisor = 2;
+
+    while (es_primo && (long long)divisor * divisor <= num) {
+        if (num % divisor == 0) {
+            es_primo = false; // Se encontro un divisor exacto, no es primo
+        }
+        divisor++;
+    }
+
+    // Salida del diagnostico
+    if (es_primo) {
+        printf("El numero ingresado es primo.\n");
+    } else {
+        printf("El numero ingresado no es primo.\n");
+    }
+
+    return 0;
+}
