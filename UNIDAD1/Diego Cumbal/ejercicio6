@@ -1,0 +1,60 @@
+/*
+ * Problema 1.6. Maximo, minimo y media de alturas[cite: 20]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    // Variables para el seguimiento estadistico de las alturas ingresadas
+    float altura, maximo, minimo, suma = 0.0f;
+    int cant = 0;
+
+    // Lectura del primer valor para verificar si el usuario desea iniciar o salir
+    printf("Ingrese una altura (valor negativo para salir): ");
+    if (scanf("%f", &altura) != 1) {
+        printf("Error: entrada no numerica.\n");
+        return 1;
+    }
+
+    if (altura < 0.0f) {
+        printf("No se ingresaron datos validos.\n");
+        return 0;
+    }
+
+    // Inicializacion de valores extremos con el primer dato valido
+    maximo = altura;
+    minimo = altura;
+
+    // Bucle interactivo que procesa alturas mientras no sean negativas
+    while (altura >= 0.0f) {
+        suma += altura;
+        cant++;
+
+        // Actualizacion de los limites maximo y minimo encontrados
+        if (altura > maximo) {
+            maximo = altura;
+        }
+        if (altura < minimo) {
+            minimo = altura;
+        }
+
+        // Solicitud del siguiente dato dentro del ciclo
+        printf("Ingrese una altura (valor negativo para salir): ");
+        if (scanf("%f", &altura) != 1) {
+            printf("Entrada no valida, finalizando captura.\n");
+            break;
+        }
+    }
+
+    // Calculo e impresion de los estadisticos finales
+    if (cant > 0) {
+        printf("\nResultados:\n");
+        printf("Total de registros: %d\n", cant);
+        printf("Altura maxima: %.2f\n", maximo);
+        printf("Altura minima: %.2f\n", minimo);
+        printf("Media de las alturas: %.2f\n", suma / cant);
+    }
+
+    return 0;
+}
