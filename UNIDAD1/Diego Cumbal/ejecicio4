@@ -1,0 +1,27 @@
+/*
+ * Problema 1.4. Intervalo[cite: 19]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    // Variable para almacenar el numero real a evaluar
+    float n;
+
+    // Entrada de datos
+    printf("Ingrese un valor: ");
+    if (scanf("%f", &n) != 1) {
+        printf("Error: entrada no valida.\n");
+        return 1;
+    }
+
+    // Comprobacion simultanea de los limites inferior (>= 0) y superior (<= 10)
+    if (n >= 0.0f && n <= 10.0f) {
+        printf("%.2f pertenece al intervalo [0, 10]\n", n);
+    } else {
+        printf("%.2f no pertenece al intervalo [0, 10]\n", n);
+    }
+
+    return 0;
+}
