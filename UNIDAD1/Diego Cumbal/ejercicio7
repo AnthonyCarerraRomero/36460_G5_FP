@@ -1,0 +1,33 @@
+/*
+ * Problema 1.7. Raiz cuadrada entera[cite: 20]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    // Declaracion de variables para N, la raiz entera R y el contador i
+    int n, r;
+    long long i;
+
+    // Validacion de entrada asegurando que N sea un entero estrictamente positivo
+    printf("Ingrese un numero entero positivo N: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Error: N debe ser positivo mayor que cero.\n");
+        return 1;
+    }
+
+    // Busqueda iterativa por aproximacion por defecto: busca el primer entero cuyo cuadrado supere a N
+    i = 1;
+    while (i * i <= n) {
+        i++;
+    }
+
+    // La solucion entera corresponde a i - 1
+    r = (int)(i - 1);
+
+    // Muestra del resultado final
+    printf("La raiz cuadrada entera de %d es: %d\n", n, r);
+
+    return 0;
+}
