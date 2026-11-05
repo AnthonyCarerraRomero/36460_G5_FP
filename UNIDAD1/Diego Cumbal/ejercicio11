@@ -1,0 +1,31 @@
+/*
+ * Problema 1.11. Serie de Fibonacci[cite: 21]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    // Variables de desplazamiento para generar la sucesion
+    unsigned long long anterior = 0, actual = 1, siguiente;
+
+    // Solicitud del total de terminos requeridos
+    printf("Cuantos terminos quieres?: ");
+    if (scanf("%d", &n) != 1 || n < 1) {
+        printf("Error: n debe ser mayor o igual a 1.\n");
+        return 1;
+    }
+
+    // Generacion e impresion paso a paso de cada termino de Fibonacci
+    printf("Serie de Fibonacci (%d terminos):\n", n);
+    for (int i = 1; i <= n; i++) {
+        printf("%llu ", anterior);
+        siguiente = anterior + actual; // Calcula la suma de los dos terminos previos
+        anterior = actual;             // Desplaza el primer termino
+        actual = siguiente;            // Desplaza el segundo termino
+    }
+    printf("\n");
+
+    return 0;
+}
