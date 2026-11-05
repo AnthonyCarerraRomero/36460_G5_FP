@@ -1,0 +1,29 @@
+/*
+ * Problema 1.18. Triangulo de asteriscos[cite: 22]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+
+    // Lectura de la cantidad de filas que tendra la figura
+    printf("Ingresa el numero de filas: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Error: ingrese un numero entero positivo.\n");
+        return 1;
+    }
+
+    // Ciclos anidados: el externo controla cada fila 'i'
+    for (int i = 1; i <= n; i++) {
+        // El ciclo interno imprime 'i' asteriscos en la fila actual
+        for (int j = 1; j <= i; j++) {
+            putchar('*');
+        }
+        // Salto de linea al terminar cada nivel del triangulo
+        putchar('\n');
+    }
+
+    return 0;
+}
