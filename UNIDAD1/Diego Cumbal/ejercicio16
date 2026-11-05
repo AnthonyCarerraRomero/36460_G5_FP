@@ -1,0 +1,33 @@
+/*
+ * Problema 1.16. Numero perfecto[cite: 22]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+int main(void) {
+    int n, suma = 0;
+
+    // Entrada y confirmacion de numero entero positivo
+    printf("Ingresa un entero positivo: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Error: el numero debe ser positivo.\n");
+        return 1;
+    }
+
+    // Optimizacion: se evaluan los divisores propios unicamente hasta la mitad del numero (n / 2)
+    for (int d = 1; d <= n / 2; d++) {
+        if (n % d == 0) {
+            suma += d; // Acumula el divisor propio encontrado
+        }
+    }
+
+    // Un numero es perfecto si la suma de sus divisores propios coincide exactamente con su valor original
+    if (suma == n) {
+        printf("%d es perfecto.\n", n);
+    } else {
+        printf("%d no es perfecto.\n", n);
+    }
+
+    return 0;
+}
