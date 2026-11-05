@@ -1,0 +1,53 @@
+/*
+ * Problema 1.9. Numeros primos comprendidos entre dos numeros dados[cite: 20]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
+
+// Funcion auxiliar modular para verificar de forma independiente si un entero es primo
+bool es_primo(int n) {
+    if (n < 2) {
+        return false;
+    }
+    for (int divisor = 2; (long long)divisor * divisor <= n; divisor++) {
+        if (n % divisor == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Procedimiento principal para solicitar el intervalo y recorrerlo
+void primos_entre_dos_numeros(void) {
+    int inicio, fin_num, temp;
+
+    // Lectura de los dos extremos
+    printf("Ingrese el primer numero: ");
+    if (scanf("%d", &inicio) != 1) return;
+
+    printf("Ingrese el segundo numero: ");
+    if (scanf("%d", &fin_num) != 1) return;
+
+    // Ordenamiento preventivo de los extremos si se introducen invertidos
+    if (inicio > fin_num) {
+        temp = inicio;
+        inicio = fin_num;
+        fin_num = temp;
+    }
+
+    // Recorrido secuencial del intervalo imprimiendo solo los numeros que cumplen la condicion
+    printf("Numeros primos entre %d y %d:\n", inicio, fin_num);
+    for (int num = inicio; num <= fin_num; num++) {
+        if (es_primo(num)) {
+            printf("%d ", num);
+        }
+    }
+    printf("\n");
+}
+
+int main(void) {
+    primos_entre_dos_numeros();
+    return 0;
+}
