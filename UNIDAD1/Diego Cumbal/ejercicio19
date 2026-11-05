@@ -1,0 +1,50 @@
+/*
+ * Problema 1.19. Segundo mayor de una secuencia[cite: 23]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void) {
+    int x;
+    // Inicializacion con el valor minimo representable para aceptar cualquier numero ingresado
+    int mayor = INT_MIN;
+    int segundo = INT_MIN;
+    int cont = 0;
+
+    printf("Ingresa un numero (0 para terminar):\n");
+
+    // Ciclo de lectura continua hasta que se introduzca un cero
+    while (1) {
+        printf("Numero: ");
+        if (scanf("%d", &x) != 1) {
+            printf("Error: entrada no valida.\n");
+            return 1;
+        }
+
+        // Condicion de parada
+        if (x == 0) {
+            break;
+        }
+
+        cont++;
+        // Logica de actualizacion: si supera al mayor, el anterior mayor pasa a ser el segundo
+        if (x > mayor) {
+            segundo = mayor;
+            mayor = x;
+        // Si no supera al mayor pero si al segundo, se actualiza solo el segundo mayor
+        } else if (x > segundo && x < mayor) {
+            segundo = x;
+        }
+    }
+
+    // Verificacion de que existan suficientes datos distintos ingresados
+    if (cont < 2 || segundo == INT_MIN) {
+        printf("Se necesitan al menos dos valores distintos.\n");
+    } else {
+        printf("Mayor = %d, segundo mayor = %d\n", mayor, segundo);
+    }
+
+    return 0;
+}
