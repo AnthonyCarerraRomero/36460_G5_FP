@@ -1,0 +1,34 @@
+/*
+ * Problema 1.17. Conversion de decimal a binario[cite: 22]
+ * Creador: Diego Enrique Cumbal Quishpe
+ */
+
+#include <stdio.h>
+
+// Funcion recursiva para imprimir los bits en el orden correcto (sin necesidad de arreglos)
+void imprimir_binario(unsigned int n) {
+    // Si quedan cocientes por procesar, se desciende en la pila de ejecucion
+    if (n > 1) {
+        imprimir_binario(n / 2);
+    }
+    // Al regresar de las llamadas recursivas, imprime el resto en orden directo
+    printf("%u", n % 2);
+}
+
+int main(void) {
+    int n;
+
+    // Lectura del valor positivo en base 10
+    printf("Ingresa un numero positivo: ");
+    if (scanf("%d", &n) != 1 || n < 0) {
+        printf("Error: debe ingresar un numero entero no negativo.\n");
+        return 1;
+    }
+
+    // Llamada a la funcion de conversion e impresion
+    printf("En binario: ");
+    imprimir_binario((unsigned int)n);
+    printf("\n");
+
+    return 0;
+}
