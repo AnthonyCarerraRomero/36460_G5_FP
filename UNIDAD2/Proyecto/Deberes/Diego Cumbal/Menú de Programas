@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+// Prototipos de las funciones
+void dibujarCuadrado(int n);
+void secuenciaFibonacci(int terminos);
+
+int main() {
+    int opcion, n;
+
+    do {
+        printf("\n==============================\n");
+        printf("       MENU DE OPCIONES       \n");
+        printf("==============================\n");
+        printf("1. Dibujar cuadrado de n x n\n");
+        printf("2. Secuencia de Fibonacci\n");
+        printf("3. Salir\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                printf("Ingrese el tamanio n del cuadrado: ");
+                scanf("%d", &n);
+                dibujarCuadrado(n);
+                break;
+
+            case 2:
+                printf("Ingrese la cantidad de terminos de Fibonacci: ");
+                scanf("%d", &n);
+                secuenciaFibonacci(n);
+                break;
+
+            case 3:
+                printf("Saliendo del programa...\n");
+                break;
+
+            default:
+                printf("Opcion no valida. Intente de nuevo.\n");
+        }
+    } while (opcion != 3);
+
+    return 0;
+}
+
+// Programa 1: Cuadrado de n x n
+void dibujarCuadrado(int n) {
+    if (n <= 0) {
+        printf("El tamanio debe ser mayor a 0.\n");
+        return;
+    }
+
+    printf("\nCuadrado de %d x %d:\n", n, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+// Programa 2: Secuencia de Fibonacci
+void secuenciaFibonacci(int terminos) {
+    if (terminos <= 0) {
+        printf("La cantidad de terminos debe ser mayor a 0.\n");
+        return;
+    }
+
+    unsigned long long a = 0, b = 1, siguiente;
+
+    printf("\nSecuencia de Fibonacci (%d terminos):\n", terminos);
+    for (int i = 1; i <= terminos; i++) {
+        printf("%llu", a);
+        if (i < terminos) {
+            printf(", ");
+        }
+        siguiente = a + b;
+        a = b;
+        b = siguiente;
+    }
+    printf("\n");
+}
