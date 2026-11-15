@@ -14,7 +14,7 @@ int main(){
     do{
 
         // Presentación de las opciones disponibles.
-        printf("Menú\n");
+        printf("Menu\n");
 
         printf("1. Figura\n");
 
@@ -24,7 +24,7 @@ int main(){
 
 
         // Solicita al usuario que seleccione una opción.
-        printf("Escoja una opción: ");
+        printf("Escoja una opcion: ");
 
         // Almacena la opción ingresada por el usuario.
         scanf("%d", &opcion);
@@ -36,7 +36,7 @@ int main(){
         case 1:
 
             // Solicita el número de filas para dibujar la figura.
-            printf("Ingrese el número filas: ");
+            printf("Ingrese el numero filas: ");
 
             scanf("%d", &n);
 
