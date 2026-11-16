@@ -120,7 +120,7 @@ int main()
         printf("Gracias por entrar. ¡Hasta luego!\n");
         break;
 
-    Captura cualquier opción numérica distinta a las válidas establecidas en el menú
+    //Captura cualquier opción numérica distinta a las válidas establecidas en el menú
     default:
                 printf("No hay una opcion con ese numero. Intente de nuevo.\n");
                 break;
