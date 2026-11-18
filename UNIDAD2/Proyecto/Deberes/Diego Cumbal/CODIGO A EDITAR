@@ -1,54 +1,115 @@
-#include <studio.h>
-#include <sutlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(){
-int opcion;
-int dia, mes ,año;
-do {
-    printf ("n\====Menu====\n");
-    printf ("n\opciones\n");
-    printf("1.Validacion de fecha\n");
-    printf ("n\2.Salida\n");
-    scanf ("%d", &opcion);
-case 1:
+int main() {
+    // 1. Declaracion de variables al inicio (buena practica basica)
+    int opcion = 0;
+    int dia = 0, mes = 0, anio = 0;
+    int max_dias = 0;
+
     do {
-        printf("Ecriba el año\n");
-        sacnf ("%d", &año);
-        if (año < 1900; año>2015;){
-            prinf ("Fuera de rango\n");
-            }
-    }while (año < 1900; año>2015;)
-    {
-    do {
-        print("Ecriba el mes\n");
-        scanf ("%d", &mes);
-        if(mes < 1; mes > 12){
-            printf ("Fuera del rango\n")
-        } while (mes < 1; mes > 12;)
-       }
-        {
-    for (mes = 1, 3, 5, 7, 8, 10, 12) {
-            do{
-         printf ("Ecriba el dia\n");
-        scanf ("%d", &dia);
-        if( dia < 1; dia > 31;){
-            printf ("No existen esos dias")
-        }while( dia < 1; dia > 31;)
-      }
-    }
-    for (mes = 2){
-        do{
-            printf ("Escriba el dia\n");
-            scanf ("%d", &dia);
-            if(dia < 1;, dia >29;){
-                printf ( "No existe eses dia\n")
-                }while(dia < 1;, dia >29;)
-              }
-            }
+        // Limpiar la pantalla al iniciar cada vuelta del menu
+        system("cls || clear");
+
+        printf("====================================\n");
+        printf("           MENU PRINCIPAL           \n");
+        printf("====================================\n");
+        printf("1. Validacion de fecha\n");
+        printf("2. Salir\n");
+        printf("------------------------------------\n");
+        printf("Elija una opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                // Limpiar pantalla para mostrar solo el programa elegido
+                system("cls || clear");
+                printf("--- VALIDACION DE FECHA ---\n");
+
+                // Paso 1: Pedir y validar el anio (1900 a 2015)
+                do {
+                    printf("\nIngrese el anio (1900 - 2015): ");
+                    scanf("%d", &anio);
+
+                    if (anio < 1900 || anio > 2015) {
+                        printf("Error: El anio debe estar entre 1900 y 2015.\n");
+                    }
+                } while (anio < 1900 || anio > 2015);
+
+                // Paso 2: Pedir y validar el mes (1 a 12)
+                do {
+                    printf("\nIngrese el mes en numero (1 - 12): ");
+                    scanf("%d", &mes);
+
+                    if (mes < 1 || mes > 12) {
+                        printf("Error: El mes debe estar entre 1 y 12.\n");
+                    }
+                } while (mes < 1 || mes > 12);
+
+                // Paso 3: Calcular cuantos dias tiene el mes ingresado
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+                    max_dias = 31;
+                } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+                    max_dias = 30;
+                } else {
+                    // Si es febrero (mes 2), revisar si el anio es bisiesto
+                    if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+                        max_dias = 29;
+                    } else {
+                        max_dias = 28;
+                    }
+                }
+
+                // Paso 4: Pedir y validar el dia segun el limite calculado
+                do {
+                    printf("\nIngrese el dia (1 - %d): ", max_dias);
+                    scanf("%d", &dia);
+
+                    if (dia < 1 || dia > max_dias) {
+                        printf("Error: Para ese mes el dia debe estar entre 1 y %d.\n", max_dias);
+                    }
+                } while (dia < 1 || dia > max_dias);
+
+                // Paso 5: Imprimir el resultado final
+                printf("\n------------------------------------\n");
+                printf("Fecha valida: %d de ", dia);
+
+                if (mes == 1)  printf("enero");
+                if (mes == 2)  printf("febrero");
+                if (mes == 3)  printf("marzo");
+                if (mes == 4)  printf("abril");
+                if (mes == 5)  printf("mayo");
+                if (mes == 6)  printf("junio");
+                if (mes == 7)  printf("julio");
+                if (mes == 8)  printf("agosto");
+                if (mes == 9)  printf("septiembre");
+                if (mes == 10) printf("octubre");
+                if (mes == 11) printf("noviembre");
+                if (mes == 12) printf("diciembre");
+
+                printf(" del %d\n", anio);
+                printf("------------------------------------\n\n");
+
+                // Pausar con getchar() estandar para no depender solo de Windows
+                printf("Presione Enter para volver al menu...");
+                while (getchar() != '\n'); // Limpia el Enter anterior del scanf
+                getchar(); // Espera el nuevo Enter
+                break;
+
+            case 2:
+                system("cls || clear");
+                printf("Programa finalizado. Hasta luego.\n");
+                break;
+
+            default:
+                printf("\nError: Opcion no valida. Intente de nuevo.\n");
+                printf("Presione Enter para continuar...");
+                while (getchar() != '\n');
+                getchar();
+                break;
         }
-    }
 
-    }
-}
-}
+    } while (opcion != 2);
 
+    return 0;
+}
