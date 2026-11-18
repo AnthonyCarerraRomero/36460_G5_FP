@@ -1,81 +1,76 @@
 #include <stdio.h>
 
-// Prototipos de las funciones
-void dibujarCuadrado(int n);
-void secuenciaFibonacci(int terminos);
-
 int main() {
-    int opcion, n;
+    int opcion;
+    int n, i, j;
 
     do {
-        printf("\n==============================\n");
-        printf("       MENU DE OPCIONES       \n");
-        printf("==============================\n");
-        printf("1. Dibujar cuadrado de n x n\n");
-        printf("2. Secuencia de Fibonacci\n");
+        printf("\n=== MENU PRINCIPAL ===\n");
+        printf("1. Cuadrado hueco\n");
+        printf("2. Serie de Fibonacci\n");
         printf("3. Salir\n");
-        printf("Seleccione una opcion: ");
+        printf("Elija una opcion: ");
         scanf("%d", &opcion);
 
         switch (opcion) {
             case 1:
-                printf("Ingrese el tamanio n del cuadrado: ");
-                scanf("%d", &n);
-                dibujarCuadrado(n);
+                // Validar tamano del cuadrado
+                do {
+                    printf("\nIngrese el tamano del lado del cuadrado (mayor a 0): ");
+                    scanf("%d", &n);
+                    if (n <= 0) {
+                        printf("Error: No se permiten valores negativos ni cero.\n");
+                    }
+                } while (n <= 0);
+
+                printf("\n");
+                // Dibujar cuadrado hueco
+                for (i = 1; i <= n; i++) {
+                    for (j = 1; j <= n; j++) {
+                        if (i == 1 || i == n || j == 1 || j == n) {
+                            printf("* ");
+                        } else {
+                            printf("  ");
+                        }
+                    }
+                    printf("\n");
+                }
                 break;
 
             case 2:
-                printf("Ingrese la cantidad de terminos de Fibonacci: ");
-                scanf("%d", &n);
-                secuenciaFibonacci(n);
+                // Validar cantidad de terminos
+                do {
+                    printf("\nIngrese cuantos terminos de Fibonacci desea ver (mayor a 0): ");
+                    scanf("%d", &n);
+                    if (n <= 0) {
+                        printf("Error: No se permiten valores negativos ni cero.\n");
+                    }
+                } while (n <= 0);
+
+                {
+                    int a = 0, b = 1, siguiente;
+
+                    printf("\nSerie de Fibonacci:\n");
+                    for (i = 1; i <= n; i++) {
+                        printf("%d  ", a);
+                        siguiente = a + b;
+                        a = b;
+                        b = siguiente;
+                    }
+                    printf("\n");
+                }
                 break;
 
             case 3:
-                printf("Saliendo del programa...\n");
+                printf("\nSaliendo del programa...\n");
                 break;
 
             default:
-                printf("Opcion no valida. Intente de nuevo.\n");
+                printf("\nOpcion incorrecta, intente de nuevo.\n");
+                break;
         }
+
     } while (opcion != 3);
 
     return 0;
-}
-
-// Programa 1: Cuadrado de n x n
-void dibujarCuadrado(int n) {
-    if (n <= 0) {
-        printf("El tamanio debe ser mayor a 0.\n");
-        return;
-    }
-
-    printf("\nCuadrado de %d x %d:\n", n, n);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("* ");
-        }
-        printf("\n");
-    }
-}
-
-// Programa 2: Secuencia de Fibonacci
-void secuenciaFibonacci(int terminos) {
-    if (terminos <= 0) {
-        printf("La cantidad de terminos debe ser mayor a 0.\n");
-        return;
-    }
-
-    unsigned long long a = 0, b = 1, siguiente;
-
-    printf("\nSecuencia de Fibonacci (%d terminos):\n", terminos);
-    for (int i = 1; i <= terminos; i++) {
-        printf("%llu", a);
-        if (i < terminos) {
-            printf(", ");
-        }
-        siguiente = a + b;
-        a = b;
-        b = siguiente;
-    }
-    printf("\n");
 }
