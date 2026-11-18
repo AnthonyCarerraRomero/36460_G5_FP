@@ -1,0 +1,54 @@
+#include <studio.h>
+#include <sutlib.h>
+
+int main(){
+int opcion;
+int dia, mes ,año;
+do {
+    printf ("n\====Menu====\n");
+    printf ("n\opciones\n");
+    printf("1.Validacion de fecha\n");
+    printf ("n\2.Salida\n");
+    scanf ("%d", &opcion);
+case 1:
+    do {
+        printf("Ecriba el año\n");
+        sacnf ("%d", &año);
+        if (año < 1900; año>2015;){
+            prinf ("Fuera de rango\n");
+            }
+    }while (año < 1900; año>2015;)
+    {
+    do {
+        print("Ecriba el mes\n");
+        scanf ("%d", &mes);
+        if(mes < 1; mes > 12){
+            printf ("Fuera del rango\n")
+        } while (mes < 1; mes > 12;)
+       }
+        {
+    for (mes = 1, 3, 5, 7, 8, 10, 12) {
+            do{
+         printf ("Ecriba el dia\n");
+        scanf ("%d", &dia);
+        if( dia < 1; dia > 31;){
+            printf ("No existen esos dias")
+        }while( dia < 1; dia > 31;)
+      }
+    }
+    for (mes = 2){
+        do{
+            printf ("Escriba el dia\n");
+            scanf ("%d", &dia);
+            if(dia < 1;, dia >29;){
+                printf ( "No existe eses dia\n")
+                }while(dia < 1;, dia >29;)
+              }
+            }
+        }
+    }
+
+    }
+}
+}
+
